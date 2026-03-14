@@ -472,20 +472,21 @@ hr.divider {
 /* PLAYERS */
 .players-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 .player-card {
   background: var(--bg2);
   border: 1px solid var(--border);
-  padding: 1.25rem;
-  text-align: left;
+  padding: 1rem;
+  text-align: center;
   position: relative;
   overflow: hidden;
   transition: border-color 0.2s, transform 0.2s;
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 .player-card:hover { border-color: var(--border2); transform: translateY(-3px); }
 .player-card::before {
@@ -499,8 +500,8 @@ hr.divider {
 .player-card.malta::before { background: linear-gradient(to right, #c8a000, #f1bf00, #c8a000); }
 .player-card.germany::before { background: linear-gradient(to right, #999, #e8e8e8, #999); }
 
-.player-flag { font-size: 36px; display: block; flex-shrink: 0; margin-top: 4px; }
-.player-inner { flex: 1; min-width: 0; }
+.player-flag { display: block; flex-shrink: 0; }
+.player-inner { width: 100%; }
 .player-name {
   font-family: 'Cinzel', serif;
   font-size: 11px;
@@ -628,9 +629,8 @@ footer {
   .solo-nations { flex-direction: row; flex-wrap: wrap; }
 
   .players-grid { grid-template-columns: repeat(4, 1fr); }
-  .player-card { flex-direction: column; align-items: center; text-align: center; }
   .player-inner { text-align: center; width: 100%; }
-  .player-flag { font-size: 28px; }
+
   .player-name { font-size: 11px; word-break: normal; }
   .player-nation { font-size: 10px; }
   .player-stat-label { font-size: 8px; }
@@ -813,54 +813,63 @@ footer {
     <div class="section-line"></div>
   </div>
   <div class="players-grid">
+
     <div class="player-card uk">
-      <span class="player-flag">🇬🇧</span>
+      <svg viewBox="0 0 60 36" width="54" height="32" xmlns="http://www.w3.org/2000/svg" style="border:1px solid rgba(255,255,255,0.15)"><rect width="60" height="36" fill="#012169"/><path d="M0,0 L60,36 M60,0 L0,36" stroke="white" stroke-width="6"/><path d="M0,0 L60,36 M60,0 L0,36" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V36 M0,18 H60" stroke="white" stroke-width="10"/><path d="M30,0 V36 M0,18 H60" stroke="#C8102E" stroke-width="6"/></svg>
       <div class="player-inner">
-      <div class="player-name">LegoNickPlus</div>
-      <div class="player-nation">United Kingdom</div>
-      <span class="tag allied">Allied</span>
-      <div style="margin-top:0.75rem">
-        <div class="player-stat"><span class="player-stat-label">Territory</span><span class="player-stat-val">British Isles</span></div>
-        <div class="player-stat"><span class="player-stat-label">Alliance</span><span class="player-stat-val">Anglo-German</span></div>
-        <div class="player-stat"><span class="player-stat-label">Arms</span><span class="player-stat-val">🔫 Armed</span></div>
+        <div class="player-name">LegoNickPlus</div>
+        <div class="player-nation">United Kingdom</div>
+        <span class="tag allied">Allied</span>
+        <div style="margin-top:0.75rem">
+          <div class="player-stat"><span class="player-stat-label">Territory</span><span class="player-stat-val">British Isles</span></div>
+          <div class="player-stat"><span class="player-stat-label">Alliance</span><span class="player-stat-val">Anglo-German</span></div>
+          <div class="player-stat"><span class="player-stat-label">Arms</span><span class="player-stat-val">🔫 Armed</span></div>
+        </div>
       </div>
     </div>
+
     <div class="player-card rome">
-      <span class="player-flag">🏛️</span>
+      <svg viewBox="0 0 60 36" width="54" height="32" xmlns="http://www.w3.org/2000/svg" style="border:1px solid rgba(255,255,255,0.15)"><rect width="60" height="36" fill="#8b0000"/><text x="30" y="24" text-anchor="middle" font-size="18" fill="#d4af37" font-family="serif" font-weight="bold">SPQR</text></svg>
       <div class="player-inner">
-      <div class="player-name">Talezy</div>
-      <div class="player-nation">Roman Empire</div>
-      <span class="tag allied">Allied</span>
-      <div style="margin-top:0.75rem">
-        <div class="player-stat"><span class="player-stat-label">Territory</span><span class="player-stat-val">Italy / Med.</span></div>
-        <div class="player-stat"><span class="player-stat-label">Alliance</span><span class="player-stat-val">Germ-Roman</span></div>
-        <div class="player-stat"><span class="player-stat-label">Arms</span><span class="player-stat-val">🔫 Armed</span></div>
+        <div class="player-name">Talezy</div>
+        <div class="player-nation">Roman Empire</div>
+        <span class="tag allied">Allied</span>
+        <div style="margin-top:0.75rem">
+          <div class="player-stat"><span class="player-stat-label">Territory</span><span class="player-stat-val">Italy / Med.</span></div>
+          <div class="player-stat"><span class="player-stat-label">Alliance</span><span class="player-stat-val">Germ-Roman</span></div>
+          <div class="player-stat"><span class="player-stat-label">Arms</span><span class="player-stat-val">🔫 Armed</span></div>
+        </div>
       </div>
     </div>
+
     <div class="player-card malta">
-      <span class="player-flag">🇲🇹</span>
+      <svg viewBox="0 0 60 36" width="54" height="32" xmlns="http://www.w3.org/2000/svg" style="border:1px solid rgba(255,255,255,0.15)"><rect width="30" height="36" fill="white"/><rect x="30" width="30" height="36" fill="#CF0921"/><rect x="3" y="3" width="14" height="14" fill="#CF0921"/><rect x="3" y="3" width="7" height="7" fill="white"/><rect x="10" y="10" width="7" height="7" fill="white"/></svg>
       <div class="player-inner">
-      <div class="player-name">fullboxedbyteso</div>
-      <div class="player-nation">Malta</div>
-      <span class="tag neutral">Independent</span>
-      <div style="margin-top:0.75rem">
-        <div class="player-stat"><span class="player-stat-label">Territory</span><span class="player-stat-val">Malta</span></div>
-        <div class="player-stat"><span class="player-stat-label">Alliance</span><span class="player-stat-val">None</span></div>
-        <div class="player-stat"><span class="player-stat-label">Arms</span><span class="player-stat-val">🔫 Armed</span></div>
+        <div class="player-name">fullboxedbyteso</div>
+        <div class="player-nation">Malta</div>
+        <span class="tag neutral">Independent</span>
+        <div style="margin-top:0.75rem">
+          <div class="player-stat"><span class="player-stat-label">Territory</span><span class="player-stat-val">Malta</span></div>
+          <div class="player-stat"><span class="player-stat-label">Alliance</span><span class="player-stat-val">None</span></div>
+          <div class="player-stat"><span class="player-stat-label">Arms</span><span class="player-stat-val">🔫 Armed</span></div>
+        </div>
       </div>
     </div>
+
     <div class="player-card germany">
-      <span class="player-flag">🇩🇪</span>
+      <svg viewBox="0 0 60 36" width="54" height="32" xmlns="http://www.w3.org/2000/svg" style="border:1px solid rgba(255,255,255,0.15)"><rect width="60" height="12" fill="#000"/><rect y="12" width="60" height="12" fill="#DD0000"/><rect y="24" width="60" height="12" fill="#FFCE00"/></svg>
       <div class="player-inner">
-      <div class="player-name">CJL1897</div>
-      <div class="player-nation">Germany</div>
-      <span class="tag allied">Allied ×2</span>
-      <div style="margin-top:0.75rem">
-        <div class="player-stat"><span class="player-stat-label">Territory</span><span class="player-stat-val">C. Europe</span></div>
-        <div class="player-stat"><span class="player-stat-label">Alliance</span><span class="player-stat-val">Both Pacts</span></div>
-        <div class="player-stat"><span class="player-stat-label">Arms</span><span class="player-stat-val">🔫 Armed</span></div>
+        <div class="player-name">CJL1897</div>
+        <div class="player-nation">Germany</div>
+        <span class="tag allied">Allied ×2</span>
+        <div style="margin-top:0.75rem">
+          <div class="player-stat"><span class="player-stat-label">Territory</span><span class="player-stat-val">C. Europe</span></div>
+          <div class="player-stat"><span class="player-stat-label">Alliance</span><span class="player-stat-val">Both Pacts</span></div>
+          <div class="player-stat"><span class="player-stat-label">Arms</span><span class="player-stat-val">🔫 Armed</span></div>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
